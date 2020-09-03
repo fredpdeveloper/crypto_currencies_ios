@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
    
     @IBOutlet var tableView:UITableView!
-    // Data model: These strings will be the data for the table view cells
-    let cryptos: [String] = ["Bitcoin", "Ethereum", "EOS", "Stellar lumens"]
+    var tickers = [Ticker]()
     let cellReuseIdentifier = "cell"
     
     override func viewDidLoad() {
@@ -21,11 +21,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
         tableView.delegate = self
         tableView.dataSource = self
+        downloadDataFromAPI()
+    }
+    
+    //GET TICKER
+    func downloadDataFromAPI(){
+        let request = AF.request("https://api.cryptomkt.com/v1/ticker")
+        // 2
+        request.responseDecodable(of: Tickers.self) { (response) in
+          guard let tickers = response.value else { return }
+          self.tickers = tickers.all
+          self.tableView.reloadData()
+        }
+        
     }
     
     // number of rows in table view
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.cryptos.count
+        return self.tickers.count
     }
     
     // create a cell for each table view row
@@ -34,8 +47,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         // create a new cell if needed or reuse an old one
         let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier,for: indexPath)
         // set the text from the data model
-        cell.textLabel?.text = self.cryptos[indexPath.row]
-        
+        cell.textLabel?.text = self.tickers[indexPath.row].market
         return cell
     }
     
