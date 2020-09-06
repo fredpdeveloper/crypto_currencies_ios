@@ -10,17 +10,15 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
-   
-    @IBOutlet var tableView:UITableView!
+    
+    @IBOutlet var tickerTableView:UITableView!
     var tickers = [Ticker]()
-    let cellReuseIdentifier = "cell"
+    let cellReuseIdentifier = "tickerCell"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Register the table view cell class and its reuse id
-        self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: cellReuseIdentifier)
-        tableView.delegate = self
-        tableView.dataSource = self
+        tickerTableView.delegate = self
+        tickerTableView.dataSource = self
         downloadDataFromAPI()
     }
     
@@ -29,9 +27,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let request = AF.request("https://api.cryptomkt.com/v1/ticker")
         // 2
         request.responseDecodable(of: Tickers.self) { (response) in
-          guard let tickers = response.value else { return }
-          self.tickers = tickers.all
-          self.tableView.reloadData()
+            guard let tickers = response.value else { return }
+            self.tickers = tickers.all
+            self.tickerTableView.reloadData()
         }
         
     }
@@ -45,9 +43,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         // create a new cell if needed or reuse an old one
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier,for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier,for: indexPath) as! TickerTVC
         // set the text from the data model
-        cell.textLabel?.text = self.tickers[indexPath.row].market
+        let ticker:Ticker = self.tickers[indexPath.row]
+        cell.market?.text = "  "+ticker.market
+        cell.price?.text  = ticker.bid
+        if(ticker.market.contains("ETH")){
+            cell.imgMarket!.image = UIImage(named:"ethereum")!
+        }else if(ticker.market.contains("XLM")){
+            cell.imgMarket!.image = UIImage(named:"stellar")!
+        }else if(ticker.market.contains("BTC")){
+            cell.imgMarket!.image = UIImage(named:"bitcoin")!
+        }else if(ticker.market.contains("EOS")){
+            cell.imgMarket!.image = UIImage(named:"eos")!
+        }
+        if(ticker.market.contains("CLP")){
+            cell.imgCountry!.image = UIImage(named: "chile")!
+            
+        }else if(ticker.market.contains("ARS")){
+            cell.imgCountry!.image = UIImage(named: "argentina")!
+            
+        }else if(ticker.market.contains("BRL")){
+            cell.imgCountry!.image = UIImage(named: "brasil")!
+            
+        }else if(ticker.market.contains("EUR")){
+            cell.imgCountry!.image = UIImage(named: "europa")!
+            
+        }
+        
+        
         return cell
     }
     
@@ -55,8 +79,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("You tapped cell number \(indexPath.row).")
     }
-
-
+    
+    
 }
 
 

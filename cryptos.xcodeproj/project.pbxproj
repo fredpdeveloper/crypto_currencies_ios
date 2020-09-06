@@ -15,6 +15,7 @@
 		731E4ABE24FC2ADB00B178D1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 731E4ABC24FC2ADB00B178D1 /* LaunchScreen.storyboard */; };
 		7337315424FF5D9D001BF499 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337315324FF5D9D001BF499 /* Ticker.swift */; };
 		7337315624FF6206001BF499 /* Tickers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7337315524FF6206001BF499 /* Tickers.swift */; };
+		735675A525047C390077992A /* TickerTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 735675A425047C390077992A /* TickerTVC.swift */; };
 		EC3A441850528DE782386385 /* Pods_cryptos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF2CEC13E9BF002039BDE89E /* Pods_cryptos.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		731E4ABF24FC2ADB00B178D1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7337315324FF5D9D001BF499 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
 		7337315524FF6206001BF499 /* Tickers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tickers.swift; sourceTree = "<group>"; };
+		735675A425047C390077992A /* TickerTVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TickerTVC.swift; sourceTree = "<group>"; };
 		74D013219B5C76D024FA8DDD /* Pods-cryptos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptos.release.xcconfig"; path = "Target Support Files/Pods-cryptos/Pods-cryptos.release.xcconfig"; sourceTree = "<group>"; };
 		AF2CEC13E9BF002039BDE89E /* Pods_cryptos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cryptos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ECB9F8663448D579042B90B1 /* Pods-cryptos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cryptos.debug.xcconfig"; path = "Target Support Files/Pods-cryptos/Pods-cryptos.debug.xcconfig"; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 		731E4AB024FC2ADA00B178D1 /* cryptos */ = {
 			isa = PBXGroup;
 			children = (
+				735675A625047C7D0077992A /* views */,
 				7337315724FF621A001BF499 /* models */,
 				731E4AB124FC2ADA00B178D1 /* AppDelegate.swift */,
 				731E4AB324FC2ADA00B178D1 /* SceneDelegate.swift */,
@@ -86,6 +89,14 @@
 				7337315524FF6206001BF499 /* Tickers.swift */,
 			);
 			path = models;
+			sourceTree = "<group>";
+		};
+		735675A625047C7D0077992A /* views */ = {
+			isa = PBXGroup;
+			children = (
+				735675A425047C390077992A /* TickerTVC.swift */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 		9490C2A25D2BD876ECCEE86A /* Frameworks */ = {
@@ -221,6 +232,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7337315624FF6206001BF499 /* Tickers.swift in Sources */,
+				735675A525047C390077992A /* TickerTVC.swift in Sources */,
 				731E4AB624FC2ADA00B178D1 /* ViewController.swift in Sources */,
 				7337315424FF5D9D001BF499 /* Ticker.swift in Sources */,
 				731E4AB224FC2ADA00B178D1 /* AppDelegate.swift in Sources */,

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -19,13 +19,73 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="8Co-qq-gb7">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="tickerCell" rowHeight="80" id="8Co-qq-gb7" customClass="TickerTVC" customModule="cryptos" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Co-qq-gb7" id="Hwg-wj-Z7K">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="YNa-Z1-6Ou">
+                                                    <rect key="frame" x="16" y="16" width="382" height="48"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7N-Ta-l1a">
+                                                            <rect key="frame" x="0.0" y="0.0" width="382" height="18"/>
+                                                            <subviews>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="kYa-Qw-RDY">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="18"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="50" id="2aa-cO-TCE"/>
+                                                                        <constraint firstAttribute="height" constant="50" id="ZTV-R3-06b"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Precio BTC/ARS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fqe-Et-2jq">
+                                                                    <rect key="frame" x="50" y="0.0" width="282" height="18"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="86m-V2-wOW">
+                                                                    <rect key="frame" x="332" y="0.0" width="50" height="18"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="50" id="3nq-HB-rtP"/>
+                                                                        <constraint firstAttribute="height" constant="50" id="LgA-du-lln"/>
+                                                                    </constraints>
+                                                                </imageView>
+                                                            </subviews>
+                                                        </stackView>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J82-BH-CzL">
+                                                            <rect key="frame" x="0.0" y="18" width="382" height="30"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9.999.999 CLP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8F-Mh-Lz6">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="382" height="30"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="414" id="6Kd-kN-BUj"/>
+                                                                        <constraint firstAttribute="height" constant="30" id="N0F-qu-Hc2"/>
+                                                                        <constraint firstAttribute="width" secondItem="R8F-Mh-Lz6" secondAttribute="height" multiplier="69:5" id="tk9-do-KhO"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                        </stackView>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="YNa-Z1-6Ou" secondAttribute="trailing" constant="16" id="FgQ-mL-JBh"/>
+                                                <constraint firstAttribute="bottom" secondItem="YNa-Z1-6Ou" secondAttribute="bottom" constant="16" id="ZKU-qH-ue8"/>
+                                                <constraint firstItem="YNa-Z1-6Ou" firstAttribute="leading" secondItem="Hwg-wj-Z7K" secondAttribute="leading" constant="16" id="hpi-dA-hlL"/>
+                                                <constraint firstItem="YNa-Z1-6Ou" firstAttribute="top" secondItem="Hwg-wj-Z7K" secondAttribute="top" constant="16" id="xy7-G7-1GS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="imgCountry" destination="86m-V2-wOW" id="94H-F9-p8e"/>
+                                            <outlet property="imgMarket" destination="kYa-Qw-RDY" id="7Om-zi-LtN"/>
+                                            <outlet property="market" destination="fqe-Et-2jq" id="mZy-TG-suV"/>
+                                            <outlet property="price" destination="R8F-Mh-Lz6" id="o9o-gf-Xrz"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -40,12 +100,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="q8K-8O-LNV" id="aWF-cu-WfN"/>
+                        <outlet property="tickerTableView" destination="q8K-8O-LNV" id="aWF-cu-WfN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="138"/>
+            <point key="canvasLocation" x="137.68115942028987" y="137.94642857142856"/>
         </scene>
     </scenes>
 </document>
